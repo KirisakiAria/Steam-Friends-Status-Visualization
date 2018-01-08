@@ -1,0 +1,269 @@
+﻿html,
+body
+{
+    position: relative;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+html
+{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*
+{
+    font-size: 14px;
+    line-height: 1;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a
+{
+    -webkit-transition: all .3s ease-out 0s;
+       -moz-transition: all .3s ease-out 0s;
+        -ms-transition: all .3s ease-out 0s;
+         -o-transition: all .3s ease-out 0s;
+            transition: all .3s ease-out 0s;
+    text-decoration: none;
+
+    color: inherit;
+}
+a:hover
+{
+    text-decoration: none;
+
+    color: inherit;
+}
+a:focus
+{
+    text-decoration: none;
+
+    outline: none;
+}
+ul,
+ol,
+li
+{
+    margin: 0;
+
+    list-style-type: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p
+{
+    font-weight: normal;
+    line-height: 1;
+
+    margin: 0;
+}
+h1
+{
+    font-size: 36px;
+}
+h2
+{
+    font-size: 30px;
+}
+h3
+{
+    font-size: 24px;
+}
+h4
+{
+    font-size: 18px;
+}
+h5
+{
+    font-size: 14px;
+}
+h6
+{
+    font-size: 12px;
+}
+body,
+button,
+input,
+select,
+textarea
+{
+    font-family: 'Arial','微软雅黑';
+    line-height: 1;
+
+    margin: 0;
+
+    color: #4c4c4c;
+    border: 0;
+    outline: none;
+    background: none;
+}
+input,
+textarea
+{
+            appearance: none;
+       -moz-appearance: none;
+    -webkit-appearance: none;
+}
+a:focus,
+a:active,
+button::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='button']::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type='file'] > input[type='button']::-moz-focus-inner
+{
+    color: inherit;
+    border: 0;
+    outline: 0;
+}
+a,
+button
+{
+    cursor: pointer;
+
+    color: inherit;
+}
+label
+{
+    font-weight: normal;
+
+    margin-bottom: 0;
+
+    vertical-align: middle;
+}
+img
+{
+    vertical-align: middle;
+}
+@media (min-width: 1230px)
+{
+    .container
+    {
+        width: 1230px;
+    }
+}
+.ib
+{
+    display: inline-block !important;
+
+    vertical-align: middle;
+}
+.disnone
+{
+    display: none !important;
+}
+.clearfix:after
+{
+    display: block;
+    clear: both;
+
+    height: 0;
+
+    content: ' ';
+}
+.clearfix
+{
+    zoom: 1;
+}
+.cp
+{
+    cursor: pointer;
+}
+.fb
+{
+    font-weight: bold;
+}
+.fl
+{
+    float: left;
+}
+.fr
+{
+    float: right;
+}
+.c_333
+{
+    color: #333;
+}
+.c_666
+{
+    color: #666;
+}
+.c_999
+{
+    color: #999;
+}
+.c_w
+{
+    color: #fff;
+}
+.bg_w
+{
+    background: #fff;
+}
+.c_b
+{
+    color: #000;
+}
+.bg_b
+{
+    background: #000;
+}
+.tac
+{
+    text-align: center;
+}
+.tal
+{
+    text-align: left;
+}
+.tar
+{
+    text-align: right;
+}
+.tablediv
+{
+    display: table;
+}
+.tr
+{
+    display: table-row;
+}
+.td
+{
+    display: table-cell;
+}
+.imgdiv
+{
+    overflow: hidden;
+}
+.imgdiv img
+{
+    max-width: 100%;
+
+    -webkit-transition: all .3s ease-out 0s;
+       -moz-transition: all .3s ease-out 0s;
+        -ms-transition: all .3s ease-out 0s;
+         -o-transition: all .3s ease-out 0s;
+            transition: all .3s ease-out 0s;
+}
+@font-face
+{
+    font-family: 'azedobold';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('../assets/fonts/azedo-bold-webfont.woff2') format('woff2'),
+    url('../assets/fonts/azedo-bold-webfont.woff') format('woff'),
+    url('../assets/fonts/azedo-bold-webfont.ttf') format('truetype');
+}

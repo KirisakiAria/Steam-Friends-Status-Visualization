@@ -1,0 +1,25 @@
+{
+  "name": "Steam_Visualization",
+  "version": "0.0.1",
+  "description": "",
+  "main": "www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www",
+    "dev": "supervisor ./bin/www"
+  },
+  "keywords": [
+    "steam",
+    "visualization"
+  ],
+  "author": "伟大鱼塘",
+  "license": "MIT",
+  "devDependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "superagent": "^3.8.2"
+  }
+}
