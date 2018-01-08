@@ -1,2 +1,2 @@
 # Steam-Visualization
-A visualization of Steam
+A visualization of Steam tool
