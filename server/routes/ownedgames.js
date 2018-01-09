@@ -19,7 +19,7 @@ router.post('/getChart', (req, res) => {
 		steamid: steamid,
 		key: apikey
 	}).timeout(0).accept('application/json').then(data => {
-		async.mapLimit(data.body.friendslist.friends, 30, async function(friend) {
+		async.mapLimit(data.body.friendslist.friends, 20, async function(friend) {
 			let response = await request.get(config.summaries.url).query({
 				steamids: friend.steamid,
 				key: apikey
@@ -37,7 +37,7 @@ router.post('/getChart', (req, res) => {
 			if (err) {
 				res.send(err);
 			} else {
-				async.mapLimit(results, 30, async function(friend) {
+				async.mapLimit(results, 20, async function(friend) {
 					let response = await request.get(config.ownedGames.url).query({
 						steamid: friend.steamid,
 						key: apikey
