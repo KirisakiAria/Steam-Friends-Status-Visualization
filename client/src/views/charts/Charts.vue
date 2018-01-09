@@ -34,9 +34,6 @@
         }
       }
     },
-    created() {
-      this.axios.defaults.timeout = 0;
-    },
     methods: {
       query: function(queryContent) {
         this.chartView = false;
@@ -50,7 +47,8 @@
             data: {
               steamid: queryContent.steamid,
               apikey: queryContent.apikey,
-            }
+            },
+            timeout:0
           }).then(function(res) {
             that.loader = false;
             console.log(res);
