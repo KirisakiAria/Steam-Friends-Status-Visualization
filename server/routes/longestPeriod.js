@@ -19,7 +19,7 @@ router.post('/getChart', (req, res) => {
 		steamid: steamid,
 		key: apikey
 	}).timeout(600000).accept('application/json').then(data => {
-		async.mapLimit(data.body.friendslist.friends, 30, async function(friend) {
+		async.mapLimit(data.body.friendslist.friends, 20, async function(friend) {
 			let response = await request.get(config.ownedGames.url).query({
 				steamid: friend.steamid,
 				key: apikey,
