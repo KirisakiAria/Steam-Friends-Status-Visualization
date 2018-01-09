@@ -11,3 +11,4 @@ server.listen(port, () => {
   console.log(`服务器运行在${server.address().port}端口`);
 });
 
+server.setTimeout(0);
