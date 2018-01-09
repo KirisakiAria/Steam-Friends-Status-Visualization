@@ -1,13 +1,13 @@
 <template>
   <section class="query">
     <div class="input-group ib">
-      <input v-model="queryContent.steamid.value" type="text" name="steamid" :class="queryContent.steamid.focus" @focus='inputFocus($event)' @blur='inputBlur($event)'>
+      <input v-model="queryContent.steamid.value" type="number" name="steamid" :class="queryContent.steamid.focus" @focus='inputFocus($event)' @blur='inputBlur($event)'>
       <label>
         <span>64位ID</span>
       </label>
     </div>
     <div class="input-group ib apikey">
-      <input v-model="queryContent.apikey.value" type="text" name="apikey" :class="queryContent.apikey.focus" @focus='inputFocus($event)' @blur='inputBlur($event)'>
+      <input v-model="queryContent.apikey.value" type="password" name="apikey" :class="queryContent.apikey.focus" @focus='inputFocus($event)' @blur='inputBlur($event)'>
       <label>
         <span>API密钥</span>
       </label>

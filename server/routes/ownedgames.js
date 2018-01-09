@@ -18,12 +18,12 @@ router.post('/getChart', (req, res) => {
 	request.get(config.firendList.url).query({
 		steamid: steamid,
 		key: apikey
-	}).timeout(6000000).then(data => {
-		async.mapLimit(data.body.friendslist.friends, 5, async function(friend) {
+	}).timeout(600000).then(data => {
+		async.mapLimit(data.body.friendslist.friends, 30, async function(friend) {
 			let response = await request.get(config.summaries.url).query({
 				steamids: friend.steamid,
 				key: apikey
-			}).timeout(6000000).then(data => {
+			}).timeout(600000).then(data => {
 				let user = {
 					steamid: data.body.response.players[0].steamid,
 					personaname: data.body.response.players[0].personaname,
@@ -37,11 +37,11 @@ router.post('/getChart', (req, res) => {
 			if (err) {
 				res.send(err);
 			} else {
-				async.mapLimit(results, 5, async function(friend) {
+				async.mapLimit(results, 30, async function(friend) {
 					let response = await request.get(config.ownedGames.url).query({
 						steamid: friend.steamid,
 						key: apikey
-					}).timeout(6000000).then(data => {
+					}).timeout(600000).then(data => {
 						Object.assign(friend, {
 							games: data.body.response.game_count
 						});

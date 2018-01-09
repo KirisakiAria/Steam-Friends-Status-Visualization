@@ -82,6 +82,17 @@ body
 
     height: 100vh;
 }
+input[type='number']
+{
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+{
+    margin: 0;
+
+    -webkit-appearance: none !important;
+}
 svg:not(:root)
 {
     overflow: hidden;
@@ -651,8 +662,8 @@ svg:not(:root)
         display: flex;
         flex-direction: column;
 
-        width: 1500px;
-        height:         calc(~'100vh - 76px');
+        width: 100%;
+        height: calc(~'100vh - 76px');
         padding: 20px 0;
 
         text-align: center;
@@ -663,7 +674,7 @@ svg:not(:root)
         {
             display: flex;
 
-            height:         calc(~'100% - 60px');
+            height: calc(~'100% - 60px');
             padding-top: 40px;
 
             justify-content: center;

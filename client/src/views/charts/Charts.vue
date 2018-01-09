@@ -47,8 +47,10 @@
           }).then(function(res) {
             that.loader = false;
             console.log(res);
-            if (res.data.code == 'ECONNRESET') {
+            if (res.data.code == 'ECONNRESET' || res.data.code == 'ETIMEDOUT' || res.data.code == 'ENOTFOUND') {
               that.showTips('请求超时，请重试！');
+            } else if (res.data.status == 503) {
+              that.showTips('503了，请稍后再试！');
             } else {
               that.chartView = true;
               that.$nextTick(function() {
@@ -61,7 +63,7 @@
                       let value = obj.value;
                       return `昵称:${value[2]}</br>游戏数:${value[1]}</br>注册时间:${value[3]}-${value[4]}</br>64位ID:${value[6]}</br>`;
                     } else if (that.$route.path.includes('longestPeriod')) {
-                      return `APPID:${obj.data.appid}</br>游戏名:${obj.data.name}</br>游戏总时长:${obj.value/60}小时</br>`;
+                      return `APPID:${obj.data.appid}</br>游戏名:${obj.data.name}</br>游戏总时长:${(obj.value/60).toFixed(2)}小时</br>`;
                     }
                   }
                 });
