@@ -91,10 +91,12 @@
       },
       chartEvent: function(chart) {
         if (this.$route.path.includes('longestPeriod')) {
+          chart.off('click');
           chart.on('click', function(e) {
             window.open(`https://store.steampowered.com/app/${e.data.appid}`);
           });
         } else {
+          chart.off('click');
           chart.on('click', function(e) {
             window.open(e.value[5]);
           });
