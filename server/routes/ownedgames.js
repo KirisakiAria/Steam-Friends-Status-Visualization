@@ -38,13 +38,23 @@ router.post('/getChart', (req, res) => {
 				res.send(err);
 			} else {
 				async.mapLimit(results, 10, async function(friend) {
-					let response = await request.get(config.ownedGames.url).query({
+					let response = await request.get(config.badges.url).query({
 						steamid: friend.steamid,
 						key: apikey
 					}).timeout(0).accept('application/json').then(data => {
-						Object.assign(friend, {
-							games: data.body.response.game_count
-						});
+						let gameCount = {
+							games: 0
+						}
+						if (data.body.response.badges) {
+							data.body.response.badges.forEach(e => {
+								if (e.badgeid == 13) {
+									gameCount.games = e.level
+									return false;
+								}
+
+							});
+						}
+						Object.assign(friend, gameCount);
 						return friend;
 					});
 					return response;
@@ -58,13 +68,15 @@ router.post('/getChart', (req, res) => {
 							let gamesList = [];
 							let maxGames = 0;
 							results.forEach((e) => {
-								let year = new Date(e.timecreated * 1000).getFullYear() ? new Date(e.timecreated * 1000).getFullYear() : 0;
-								let month = new Date(e.timecreated * 1000).getMonth() + 1 ? new Date(e.timecreated * 1000).getMonth() + 1 : 0;
-								let games = e.games;
-								let personaname = e.personaname;
-								let profileurl = e.profileurl;
-								let steamid = e.steamid;
-								gamesList.push([new Date().getFullYear() - (year + month / 12), games, personaname, year, month, profileurl, steamid]);
+								if (e) {
+									let year = new Date(e.timecreated * 1000).getFullYear() ? new Date(e.timecreated * 1000).getFullYear() : 0;
+									let month = new Date(e.timecreated * 1000).getMonth() + 1 ? new Date(e.timecreated * 1000).getMonth() + 1 : 0;
+									let games = e.games;
+									let personaname = e.personaname;
+									let profileurl = e.profileurl;
+									let steamid = e.steamid;
+									gamesList.push([new Date().getFullYear() - (year + month / 12), games, personaname, year, month, profileurl, steamid]);
+								}
 							});
 							gamesList.forEach((e) => {
 								maxGames = Math.max(e[1], maxGames);
