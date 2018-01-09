@@ -18,12 +18,12 @@ router.post('/getChart', (req, res) => {
 	request.get(config.firendList.url).query({
 		steamid: steamid,
 		key: apikey
-	}).timeout(600000).accept('application/json').then(data => {
+	}).timeout(0).accept('application/json').then(data => {
 		async.mapLimit(data.body.friendslist.friends, 30, async function(friend) {
 			let response = await request.get(config.summaries.url).query({
 				steamids: friend.steamid,
 				key: apikey
-			}).timeout(600000).accept('application/json').then(data => {
+			}).timeout(0).accept('application/json').then(data => {
 				let user = {
 					steamid: data.body.response.players[0].steamid,
 					personaname: data.body.response.players[0].personaname,
@@ -41,7 +41,7 @@ router.post('/getChart', (req, res) => {
 					let response = await request.get(config.level.url).query({
 						steamid: friend.steamid,
 						key: apikey
-					}).timeout(600000).accept('application/json').then(data => {
+					}).timeout(0).accept('application/json').then(data => {
 						Object.assign(friend, {
 							level: data.body.response.player_level
 						});

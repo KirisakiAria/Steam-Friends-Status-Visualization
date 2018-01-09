@@ -18,14 +18,14 @@ router.post('/getChart', (req, res) => {
 	request.get(config.firendList.url).query({
 		steamid: steamid,
 		key: apikey
-	}).timeout(600000).accept('application/json').then(data => {
-		async.mapLimit(data.body.friendslist.friends, 20, async function(friend) {
+	}).timeout(0).accept('application/json').then(data => {
+		async.mapLimit(data.body.friendslist.friends, 30, async function(friend) {
 			let response = await request.get(config.ownedGames.url).query({
 				steamid: friend.steamid,
 				key: apikey,
 				include_appinfo: 1,
 				include_played_free_games: 1
-			}).timeout(600000).accept('application/json').then(data => {
+			}).timeout(0).accept('application/json').then(data => {
 				/*
 				push进每个账号游戏时间最长的前10位游戏,
 				游戏时间相同则可能push进去>10+的游戏，
