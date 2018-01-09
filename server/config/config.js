@@ -13,5 +13,8 @@ module.exports = {
 	},
 	ownedGames: {
 		url: 'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/'
+	},
+	badges: {
+		url: 'https://api.steampowered.com/IPlayerService/GetBadges/v1/'
 	}
 }

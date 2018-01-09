@@ -43,7 +43,8 @@
         if (this.exam(queryContent)) {
           this.axios.post(`${this.url}/getChart`, {
             steamid: queryContent.steamid,
-            apikey: queryContent.apikey
+            apikey: queryContent.apikey,
+            timeout: 0
           }).then(function(res) {
             that.loader = false;
             console.log(res);
