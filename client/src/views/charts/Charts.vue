@@ -52,8 +52,8 @@
           }).then(function(res) {
             that.loader = false;
             console.log(res);
-            if (res.data.code == 'ECONNRESET' || res.data.code == 'ETIMEDOUT' || res.data.code == 'ENOTFOUND') {
-              that.showTips('请求超时，请重试！');
+            if (res.data.code == 'ECONNRESET' || res.data.code == 'ETIMEDOUT' || res.data.code == 'ENOTFOUND'|| !res.data.series) {
+              that.showTips('请求出错，请重试！');
             } else if (res.data.status == 503) {
               that.showTips('503了，请稍后再试！');
             } else {
@@ -103,6 +103,7 @@
         }
       },
       showTips: function(message) {
+        this.chartView = false;
         this.loader = false;
         this.tips.show = true;
         this.tips.message = message;
