@@ -13,7 +13,7 @@
     "visualization"
   ],
   "author": "伟大鱼塘",
-  "license": "MIT",
+  "license": "Anti 996 License",
   "devDependencies": {
     "async": "^2.6.0",
     "body-parser": "^1.18.2",
